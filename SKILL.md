@@ -1,4 +1,4 @@
-## ---
+---
 name: anki
 description: Create, read, and edit Anki flashcard decks (.apkg files). Use when the user wants to generate flashcards from content, parse existing decks, add/remove cards, or export study material to Anki format. Triggers on requests involving Anki, flashcards, spaced repetition decks, or .apkg files.
 ---
@@ -7,8 +7,8 @@ description: Create, read, and edit Anki flashcard decks (.apkg files). Use when
 
 ## Workflow
 
-**Creating a deck?** → Generate cards as JSON → Run `scripts/create_deck.py`
-**Reading a deck?** → Run `scripts/parse_deck.py` → Returns JSON of cards
+**Creating a deck?** → Generate cards as JSON → Run `create-deck`
+**Reading a deck?** → Run `parse-deck` → Returns JSON of cards
 **Editing a deck?** → Parse first, modify JSON, recreate deck
 
 ## Creating Decks
@@ -24,9 +24,9 @@ description: Create, read, and edit Anki flashcard decks (.apkg files). Use when
 }
 ```
 
-2. Run the create script:
+2. Run:
 ```bash
-uv run create-deck input.json output.apkg
+create-deck input.json output.apkg
 ```
 
 ## Card Types
@@ -40,18 +40,7 @@ uv run create-deck input.json output.apkg
 ## Parsing Decks
 
 ```bash
-uv run parse-deck deck.apkg > cards.json
+parse-deck deck.apkg > cards.json
 ```
 
 Output format matches input format for round-trip editing.
-
-## Dependencies
-
-Install before use:
-```bash
-uv sync
-```
-
-## Output
-
-Always save generated `.apkg` files to `/mnt/user-data/outputs/`.

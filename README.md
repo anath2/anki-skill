@@ -4,15 +4,32 @@ A Python tool for creating, parsing, and editing Anki flashcard decks (.apkg fil
 
 ## Installation
 
-Requires Python 3.13+
+Requires Python 3.13+ and [uv](https://docs.astral.sh/uv/).
 
 ```bash
-# Using uv (recommended)
-uv sync
+# Install globally as a uv tool (recommended for Claude Code skill)
+uv tool install -e .
 
-# Or using pip
-pip install genanki
+# Or for local development only
+uv sync
 ```
+
+## Claude Code Skill Setup
+
+To use this as a Claude Code skill across all your projects:
+
+1. **Install the commands globally:**
+   ```bash
+   uv tool install -e /path/to/AnkiSkill
+   ```
+
+2. **Copy the skill definition:**
+   ```bash
+   mkdir -p ~/.claude/skills/anki
+   cp SKILL.md ~/.claude/skills/anki/
+   ```
+
+3. **Use it:** In any project, ask Claude to create flashcards or work with Anki decks. Claude will automatically detect and use the skill.
 
 ## Usage
 
